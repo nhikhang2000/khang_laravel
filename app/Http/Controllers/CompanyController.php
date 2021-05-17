@@ -20,4 +20,6 @@ class CompanyController extends Controller
         
         return view('companies', ['companies' => $companies]);
     }
+
+
 }

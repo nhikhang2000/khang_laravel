@@ -3,7 +3,9 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\SearchController;
 use App\Http\Middleware\PerPage;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,6 +25,7 @@ Route::get('/', function () {
 Route::get('/companies', [CompanyController::class, 'getCompanies'])
     ->middleware('per_page');
 
+
 Route::get('/trainers', [TrainerController::class, 'getTrainers'])
 ->middleware('per_page');
 
@@ -33,3 +36,13 @@ Route::fallback(function () {
 Route::get('/error', function () {
     return view('error');
 })->name('Error');
+
+// Route::get('search',[
+//     'as' => 'search',
+//     'user' => 'ControllerSearch@getSearch'
+// ]);
+
+
+
+Route::get('/search', [SearchController::class, 'search'])
+    ->middleware('per_page');
