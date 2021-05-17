@@ -37,12 +37,6 @@ Route::get('/error', function () {
     return view('error');
 })->name('Error');
 
-// Route::get('search',[
-//     'as' => 'search',
-//     'user' => 'ControllerSearch@getSearch'
-// ]);
-
-
 
 Route::get('/search', [SearchController::class, 'search'])
     ->middleware('per_page');
