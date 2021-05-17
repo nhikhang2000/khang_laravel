@@ -25,7 +25,10 @@
         <a class="p-2 text-dark" href="/companies">Companies</a>
         <a class="p-2 text-dark" href="/trainers">Trainers</a>
         <a class="p-2 text-dark" href="/search">Search</a>
-
+        <form class="form-inline my-2 my-lg-0" style="display: flex;" action="/search" method="get">
+            <input class="form-control mr-sm-2" type="text" id="search" placeholder="Search" name="name">
+            <button class="btn btn-outline-success my-2 my-sm-0 mr-auto" type="submit">Search</button>
+        </form>
     </nav>
 
 </div>
