@@ -1,10 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\TrainerController;
 use App\Http\Controllers\SearchController;
 use App\Http\Middleware\PerPage;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,10 +27,11 @@ Route::get('/', function () {
 Route::get('/companies', [CompanyController::class, 'getCompanies'])
     ->middleware('per_page');
 
-
 Route::get('/trainers', [TrainerController::class, 'getTrainers'])
 ->middleware('per_page');
 
+Route::get('/categories', [CategoryController::class, 'getCategories'])
+->middleware('per_page');
 Route::fallback(function () {
     return view('404');
 })->name('NotFound');
