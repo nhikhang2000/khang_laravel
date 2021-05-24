@@ -26,16 +26,20 @@
         <a class="p-2 text-dark" href="/trainers">Trainers</a>
         <a class="p-2 text-dark" href="/categories">Categories</a>
         <a class="p-2 text-dark" href="/search">Search</a>
-        <form class="form-inline my-2 my-lg-0" style="display: flex;" action="/search" method="get">
-            <input class="form-control mr-sm-2" type="text" id="search" placeholder="Search" name="name">
-            <button class="btn btn-outline-success my-2 my-sm-0 mr-auto" type="submit">Search</button>
-        </form>
+        <div class="form-search">
+                <form class="form-inline my-2 my-lg-0" style="display: flex;" action="/search" method="get">
+                    <input class="form-control mr-sm-2" type="text" id="search" placeholder="Search" name="name">
+                    <button class="btn btn-outline-success my-2 my-sm-0 mr-auto" type="submit">Search</button>
+                </form>
+               
+            </div>
+
     </nav>
 
 </div>
 
 <div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Trainers</h1>
+    <h1 class="display-4">Categories</h1>
 
 </div>
 
@@ -46,23 +50,20 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
             </tr>
             </thead>
             <tbody>
-                @foreach($trainers as $trainer)
+                @foreach($categories as $category)
                 <tr>
-                    <th scope="row">{!! $trainer->trainer_id !!}</th>
-                    <td>{!! $trainer->trainer_name !!}</td>
-                    <td>{!! $trainer->trainer_email !!}</td>
-                    <td>{!! $trainer->trainer_phone !!}</td>
+                    <th scope="row">{!! $category->category_id !!}</th>
+                    <td>{!! $category->category_name !!}</td>
+                  
                 </tr>
                 @endforeach
 
             </tbody>
         </table>
-        {!! $trainers->render() !!}
+        {!! $categories->render() !!}
     </div>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
