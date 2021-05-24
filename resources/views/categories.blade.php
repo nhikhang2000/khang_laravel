@@ -48,22 +48,35 @@
         <table class="table">
             <thead>
             <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
+                <tr>
+                    <th>company_id</th>
+                    <th>company_name</th>
+                    <th>company_web</th>
+                    <th>company_address</th>
+                    <th>company_phone</th>
+                    <th>company_code</th>
+                    <th>category_id</th>
+                </tr>
             </tr>
             </thead>
+            
             <tbody>
-                @foreach($categories as $category)
+                @foreach($categories as $company)
                 <tr>
-                    <th scope="row">{!! $category->category_id !!}</th>
-                    <td>{!! $category->category_name !!}</td>
+                    <td>{!! $company->company_id !!}</td>
+                    <td>{!! $company->company_name !!}</td>
+                    <td>{!! $company->company_web !!}</td>
+                    <td>{!! $company->company_address !!}</td>
+                    <td>{!! $company->company_phone !!}</td>
+                    <td>{!! $company->company_code !!}</td>
+                    <td>{!! $company->category_id !!}</td>
                   
                 </tr>
                 @endforeach
 
             </tbody>
         </table>
-        {!! $categories->render() !!}
+        {!! $categories->links() !!}
     </div>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">

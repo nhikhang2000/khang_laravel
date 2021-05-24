@@ -43,3 +43,4 @@ Route::get('/error', function () {
 
 Route::get('/search', [SearchController::class, 'search'])
     ->middleware('per_page');
+    Route::get('/categoriescompanies', [CategoriesController::class,'categoriescompanies']);
