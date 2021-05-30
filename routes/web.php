@@ -1,13 +1,10 @@
 <?php
 
-use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\CategoriesController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\TrainerController;
+use App\Http\Controllers\CompaniesController;
 use App\Http\Controllers\SearchController;
-use App\Http\Middleware\PerPage;
-use App\Models\Category;
-
+use App\Http\Controllers\TrainersController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,23 +20,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::get('/companies', [CompanyController::class, 'getCompanies'])
-    ->middleware('per_page');
-
-Route::get('/trainers', [TrainerController::class, 'getTrainers'])
-->middleware('per_page');
-
-Route::get('/categories', [CategoryController::class, 'getCategories'])
-->middleware('per_page');
-Route::fallback(function () {
-    return view('404');
-})->name('NotFound');
-
-Route::get('/error', function () {
-    return view('error');
-})->name('Error');
-
-
-Route::get('/search', [SearchController::class, 'search'])
-    ->middleware('per_page');
+Route::get('/companies', [CompaniesController::class,'companies']);
+Route::get('/trainers', [TrainersController::class,'trainers']);
+Route::get('/search', [SearchController::class,'search']);
+Route::get('/categories', [CategoriesController::class,'categories']);
