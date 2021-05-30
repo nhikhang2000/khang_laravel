@@ -1,67 +1,38 @@
-<!doctype html>
-<html lang="{{ app()->getLocale() }}">
+@extends('layout')
 
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Laravel</title>
-
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-</head>
-
-<body>
-    <form action="/search" method="get">
-        <input type="search" name="search" />
-        <button type="submit">search</button>
-    </form>
-    <nav class="navbar navbar-light navbar-expand-md">
-        <div class="container-fluid"><a class="navbar-brand" href="#">Brand</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
-            <div class="collapse navbar-collapse" id="navcol-1">
-                <ul class="navbar-nav">
-                    <li class="nav-item"><a class="nav-link active d-md-flex justify-content-md-start" href="/companies">Companies</a></li>
-                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/search">Search</a></li>
-                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/trainers">Trainer</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
+@section('content')
     
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+    <h1 class="display-4">Companies</h1>
 
-    <div class="table-responsive">
+</div>
+
+<div class="container">
+    <div class="row">
         <table class="table">
             <thead>
-                <tr>
-                    <th>company_id</th>
-                    <th>company_name</th>
-                    <th>company_web</th>
-                    <th>company_address</th>
-                    <th>company_phone</th>
-                    <th>company_code</th>
-                </tr>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Name</th>
+                <th scope="col">Web</th>
+                <th scope="col">Phone</th>
+            </tr>
             </thead>
             <tbody>
-                @foreach($companies as $company):
+                @foreach($companies as $company)
                 <tr>
-                    <td>{!! $company->company_id !!}</td>
+                    <th scope="row">{!! $company->company_id !!}</th>
                     <td>{!! $company->company_name !!}</td>
                     <td>{!! $company->company_web !!}</td>
-                    <td>{!! $company->company_address !!}</td>
                     <td>{!! $company->company_phone !!}</td>
-                    <td>{!! $company->company_code !!}</td>
                 </tr>
                 @endforeach
+
             </tbody>
         </table>
-        {!! $companies->links() !!}
+        {!! $companies->render() !!}
     </div>
-</body>
+@endsection 
+@section('title','Companies')
+    
 
-</html>

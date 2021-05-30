@@ -1,4 +1,6 @@
+
 <?php
+
 
 use Monolog\Handler\NullHandler;
 use Monolog\Handler\StreamHandler;
@@ -33,7 +35,7 @@ return [
     |                    "custom", "stack"
     |
     */
-
+    'enable_sql_log' => env('ENABLE_SQL_LOG', false),
     'channels' => [
         'stack' => [
             'driver' => 'stack',
