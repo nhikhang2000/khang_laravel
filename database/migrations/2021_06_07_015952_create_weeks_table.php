@@ -18,9 +18,9 @@ class CreateWeeksTable extends Migration
             $table->string('week_weekdays');
             $table->tinyInteger('status_check');
             $table->date('end_at');
-            $table->integer('diary_id')->unsigned();
+            $table->integer('diary_id');
             $table->timestamps();
-            $table->foreign('diary_id')->references('diary_id')->on('diaries');
+            // $table->foreign('diary_id')->references('diary_id')->on('diaries');
         });
     }
 

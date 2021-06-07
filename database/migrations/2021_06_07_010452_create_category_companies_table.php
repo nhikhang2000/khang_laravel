@@ -14,10 +14,10 @@ class CreateCategoryCompaniesTable extends Migration
     public function up()
     {
         Schema::create('category_companies', function (Blueprint $table) {
-            $table->integer('company_id')->unsigned();
-            $table->integer('category_id')->unsigned();
-            $table->foreign('company_id')->references('company_id')->on('companies');
-            $table->foreign('category_id')->references('category_id')->on('categories');
+            $table->integer('company_id');
+            $table->integer('category_id');
+            // $table->foreign('company_id')->references('company_id')->on('companies');
+            // $table->foreign('category_id')->references('category_id')->on('categories');
             $table->timestamps();
         });
     }

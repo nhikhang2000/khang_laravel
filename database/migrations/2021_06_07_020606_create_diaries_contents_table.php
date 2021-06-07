@@ -21,9 +21,9 @@ class CreateDiariesContentsTable extends Migration
             $table->string('diarycontent_note',100);
             $table->string('diarycontent_teacher_comment');
             $table->string('diarycontent_trainer_comment');
-            $table->integer('week_id')->unsigned();
+            $table->integer('week_id');
             $table->timestamps();
-            $table->foreign('week_id')->references('week_id')->on('weeks');
+            // $table->foreign('week_id')->references('week_id')->on('weeks');
         });
     }
 

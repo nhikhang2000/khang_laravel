@@ -14,11 +14,11 @@ class CreateGroupsPermissionsTable extends Migration
     public function up()
     {
         Schema::create('groups_permissions', function (Blueprint $table) {
-            $table->integer('permission_id')->unsigned();
-            $table->integer('group_id')->unsigned();
+            $table->integer('permission_id');
+            $table->integer('group_id');
             $table->timestamps();
-            $table->foreign('permission_id')->references('permission_id')->on('permissions');
-            $table->foreign('group_id')->references('group_id')->on('groups');
+            // $table->foreign('permission_id')->references('permission_id')->on('permissions');
+            // $table->foreign('group_id')->references('group_id')->on('groups');
         
         });
     }

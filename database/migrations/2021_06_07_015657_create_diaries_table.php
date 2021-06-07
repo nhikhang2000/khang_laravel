@@ -16,9 +16,9 @@ class CreateDiariesTable extends Migration
         Schema::create('diaries', function (Blueprint $table) {
             $table->increments('diary_id');
             $table->string('diary_name',100);
-            $table->integer('user_id')->unsigned();
+            $table->integer('user_id');
             $table->timestamps();
-            $table->foreign('user_id')->references('user_id')->on('users');
+            // $table->foreign('user_id')->references('user_id')->on('users');
         });
     }
 

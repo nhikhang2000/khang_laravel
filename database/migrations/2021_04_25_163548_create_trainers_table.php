@@ -22,8 +22,8 @@ class CreateTrainersTable extends Migration
             $table->string('trainer_email', 55);
             $table->string('trainer_phone', 55);
             $table->timestamps();
-            $table->foreign('company_id')->references('company_id')->on('companies');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            // $table->foreign('company_id')->references('company_id')->on('companies');
+            // $table->foreign('user_id')->references('user_id')->on('users');
            
         });
     }
