@@ -2,11 +2,12 @@
 
 namespace Database\Seeders;
 
-use App\Models\Company;
-use Illuminate\Database\Seeder;
+
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-class CategorySeeder extends Seeder
+
+class UsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,8 +17,10 @@ class CategorySeeder extends Seeder
     public function run()
     {
         for ($i=0; $i < 10000; $i++) { 
-            DB::table('categories')->insert([
-                'category_name' => Str::random(10),
+            DB::table('users')->insert([
+                'user_name' => Str::random(10),
+                'type_id' => $i,
+                'group_id' => $i
             ]);
         }
     }

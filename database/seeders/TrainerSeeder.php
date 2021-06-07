@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+
 class TrainerSeeder extends Seeder
 {
     /**
@@ -14,13 +15,23 @@ class TrainerSeeder extends Seeder
      */
     public function run()
     {
-        $collection = collect([1, 2, 3]);
-        for ($i=0; $i < 500; $i++) { 
+        DB::table('trainers')->insert([
+            'trainer_name' => Str::random(10),
+            'is_leader' => 1,
+            'company_id' => 1,
+            'user_id' => 1,
+            'trainer_email' => Str::random(5) . '@gmail.com',
+            'trainer_phone' => random_int(900000000, 999999999)
+        ]);
+        $isleader =0;
+        for ($i = 0; $i < 10000; $i++) {
             DB::table('trainers')->insert([
-                'trainer_name' => Str::random(100),
-                'company_id' => $collection->random(),
-                'trainer_email' => Str::random(100),
-                'trainer_phone' => "012345679",
+                'trainer_name' => Str::random(10),
+                'is_leader' => (Int)$isleader,
+                'company_id' => $i,
+                'user_id' => $i,
+                'trainer_email' => Str::random(5) . '@gmail.com',
+                'trainer_phone' => random_int(900000000, 999999999)
             ]);
         }
     }

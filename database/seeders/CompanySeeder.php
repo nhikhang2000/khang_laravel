@@ -15,15 +15,15 @@ class CompanySeeder extends Seeder
      */
     public function run()
     {
-        $collection = collect([1, 2, 3]);
-        for ($i=0; $i < 500; $i++) { 
+   
+        for ($i=0; $i < 10000; $i++) { 
             DB::table('companies')->insert([
-                'company_name' => Str::random(100),
-                'company_web' => Str::random(100),
-                'company_address' => Str::random(100),
-                'company_code' => Str::random(100),
-                'company_phone' => "012345679",
-                'category_id' => $collection->random(),
+                'company_name' => Str::random(10),
+                'company_web' => Str::random(5) . '@gmail.com',
+                'company_address' => Str::random(55),
+                'company_code' => Str::random(55),
+                'company_phone' => random_int(900000000, 999999999)
+           
             ]);
         }
     }
