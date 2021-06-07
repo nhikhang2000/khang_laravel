@@ -19,7 +19,8 @@ class CreateUsersTable extends Migration
             $table->integer('type_id')->unsigned();
             $table->integer('group_id')->unsigned();
             $table->timestamps();
-            $table->foreign('type_id')->references('type_id')->on('typess');
+            $table->foreign('type_id')->references('type_id')->on('types');
+            $table->foreign('group_id')->references('group_id')->on('groups');
         });
     }
 
