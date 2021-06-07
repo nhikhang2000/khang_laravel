@@ -18,10 +18,10 @@ class CompanySeeder extends Seeder
         $collection = collect([1, 2, 3]);
         for ($i=0; $i < 500; $i++) { 
             DB::table('companies')->insert([
-                'company_name' => Str::random(3),
-                'company_web' => Str::random(3),
-                'company_address' => Str::random(3),
-                'company_code' => Str::random(3),
+                'company_name' => Str::random(100),
+                'company_web' => Str::random(100),
+                'company_address' => Str::random(100),
+                'company_code' => Str::random(100),
                 'company_phone' => "012345679",
                 'category_id' => $collection->random(),
             ]);

@@ -14,7 +14,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 6; $i++) { 
+        for ($i=0; $i < 10; $i++) { 
             User::create([
                 'name' => "chuan",
                 'email' => "abc@gmail.com",

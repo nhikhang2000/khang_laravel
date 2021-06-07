@@ -15,9 +15,9 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        for ($i=0; $i < 3; $i++) { 
+        for ($i=0; $i < 500; $i++) { 
             DB::table('categories')->insert([
-                'category_name' => Str::random(3),
+                'category_name' => Str::random(100),
             ]);
         }
     }

@@ -17,9 +17,9 @@ class TrainerSeeder extends Seeder
         $collection = collect([1, 2, 3]);
         for ($i=0; $i < 500; $i++) { 
             DB::table('trainers')->insert([
-                'trainer_name' => Str::random(3),
+                'trainer_name' => Str::random(100),
                 'company_id' => $collection->random(),
-                'trainer_email' => Str::random(3),
+                'trainer_email' => Str::random(100),
                 'trainer_phone' => "012345679",
             ]);
         }
