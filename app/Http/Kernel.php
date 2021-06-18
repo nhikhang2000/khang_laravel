@@ -3,7 +3,6 @@
 namespace App\Http;
 
 use Illuminate\Foundation\Http\Kernel as HttpKernel;
-use App\Http\Middleware\PerPage;
 
 class Kernel extends HttpKernel
 {
@@ -63,7 +62,5 @@ class Kernel extends HttpKernel
         'signed' => \Illuminate\Routing\Middleware\ValidateSignature::class,
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
-        // 'per_page' => \App\Http\Middleware\PerPage::class,
-        'per_page' => \App\Http\Middleware\tranies_logic::class,
     ];
 }

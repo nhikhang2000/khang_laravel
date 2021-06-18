@@ -17,47 +17,60 @@
 </head>
 
 <body>
-    <form action="/search" method="get">
-        <input type="search" name="search" />
-        <button type="submit">search</button>
-    </form>
+
     <nav class="navbar navbar-light navbar-expand-md">
         <div class="container-fluid"><a class="navbar-brand" href="#">Brand</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse" id="navcol-1">
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link active d-md-flex justify-content-md-start" href="/companies">Companies</a></li>
-                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/search">Search</a></li>
                     <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/trainers">Trainer</a></li>
+                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/search">Search</a></li>
                 </ul>
             </div>
         </div>
     </nav>
-    <div class="table-responsive">
+    <nav class="d-flex justify-content-center">
+        <form action="/categories" method="get">
+            <input type="search" name="search" />
+            <button type="submit">search</button>
+            <div class="form-group">
+        {{ Form::select('category_id', $categories, null, ['class' => 'form-control']) }}
+    </div>
+        </form>
+    </nav>
+    
+</body>
+<div class="table-responsive">
         <table class="table">
             <thead>
                 <tr>
-                    <th>trainer_id</th>
-                    <th>trainer_name</th>
                     <th>company_id</th>
-                    <th>trainer_email</th>
-                    <th>trainer_phone</th>
+                    <th>company_name</th>
+                    <th>company_web</th>
+                    <th>company_address</th>
+                    <th>company_phone</th>
+                    <th>company_code</th>
+                    <th>category_id</th>
                 </tr>
             </thead>
+            @isset($_GET['search']):
+
             <tbody>
-                @foreach($trainers as $trainer):
+
+                @foreach($search as $company):
                 <tr>
-                    <td>{!! $trainer->trainer_id !!}</td>
-                    <td>{!! $trainer->trainer_name !!}</td>
-                    <td>{!! $trainer->company_id !!}</td>
-                    <td>{!! $trainer->trainer_email !!}</td>
-                    <td>{!! $trainer->trainer_phone !!}</td>
+                    <td>{!! $company->company_id !!}</td>
+                    <td>{!! $company->company_name !!}</td>
+                    <td>{!! $company->company_web !!}</td>
+                    <td>{!! $company->company_address !!}</td>
+                    <td>{!! $company->company_phone !!}</td>
+                    <td>{!! $company->company_code !!}</td>
+                    <td>{!! $company->category_id !!}</td>
                 </tr>
                 @endforeach
             </tbody>
         </table>
-                    <?php echo $trainers->links(); ?>
-        
+        {!! $search->links() !!}
+        @endif
     </div>
-</body>
-
 </html>
