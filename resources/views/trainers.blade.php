@@ -1,111 +1,63 @@
-<!DOCTYPE html>
-<html lang="en"><head>
+<!doctype html>
+<html lang="{{ app()->getLocale() }}">
+
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <title>Laravel</title>
 
-    <title>Pricing example for Bootstrap</title>
-
-    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/pricing/">
-
-    <!-- Bootstrap core CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
-    <!-- Custom styles for this template -->
-
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 </head>
 
 <body>
-
-<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Lập trình backend-web 2</h5>
-    <nav class="my-2 my-md-0 mr-md-3">
-        <a class="p-2 text-dark" href="/companies">Companies</a>
-        <a class="p-2 text-dark" href="/trainers">Trainers</a>
-        <a class="p-2 text-dark" href="/search">Search</a>
-        <form class="form-inline my-2 my-lg-0" style="display: flex;" action="/search" method="get">
-            <input class="form-control mr-sm-2" type="text" id="search" placeholder="Search" name="name">
-            <button class="btn btn-outline-success my-2 my-sm-0 mr-auto" type="submit">Search</button>
-        </form>
+    <form action="/search" method="get">
+        <input type="search" name="search" />
+        <button type="submit">search</button>
+    </form>
+    <nav class="navbar navbar-light navbar-expand-md">
+        <div class="container-fluid"><a class="navbar-brand" href="#">Brand</a><button data-toggle="collapse" data-target="#navcol-1" class="navbar-toggler"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navcol-1">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link active d-md-flex justify-content-md-start" href="/companies">Companies</a></li>
+                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/search">Search</a></li>
+                    <li class="nav-item d-md-flex justify-content-md-start"><a class="nav-link d-md-flex justify-content-md-start" href="/trainers">Trainer</a></li>
+                </ul>
+            </div>
+        </div>
     </nav>
-
-</div>
-
-<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-    <h1 class="display-4">Trainers</h1>
-
-</div>
-
-<div class="container">
-    <div class="row">
+    <div class="table-responsive">
         <table class="table">
             <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone</th>
-            </tr>
+                <tr>
+                    <th>trainer_id</th>
+                    <th>trainer_name</th>
+                    <th>company_id</th>
+                    <th>trainer_email</th>
+                    <th>trainer_phone</th>
+                </tr>
             </thead>
             <tbody>
-                @foreach($trainers as $trainer)
+                @foreach($trainers as $trainer):
                 <tr>
-                    <th scope="row">{!! $trainer->trainer_id !!}</th>
+                    <td>{!! $trainer->trainer_id !!}</td>
                     <td>{!! $trainer->trainer_name !!}</td>
+                    <td>{!! $trainer->company_id !!}</td>
                     <td>{!! $trainer->trainer_email !!}</td>
                     <td>{!! $trainer->trainer_phone !!}</td>
                 </tr>
                 @endforeach
-
             </tbody>
         </table>
-        {!! $trainers->render() !!}
+                    <?php echo $trainers->links(); ?>
+        
     </div>
+</body>
 
-    <footer class="pt-4 my-md-5 pt-md-5 border-top">
-        <div class="row">
-            <div class="col-12 col-md">
-                <img class="mb-2" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
-                <small class="d-block mb-3 text-muted">© 2017-2018</small>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Companies</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">List of companies</a></li>
-
-
-
-
-
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>Trainers</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">List of trainers
-                        </a></li>
-
-
-
-                </ul>
-            </div>
-            <div class="col-6 col-md">
-                <h5>About</h5>
-                <ul class="list-unstyled text-small">
-                    <li><a class="text-muted" href="#">Team</a></li>
-
-
-
-                </ul>
-            </div>
-        </div>
-    </footer>
-</div>
-
-
-
-
-
-</body></html>
+</html>
