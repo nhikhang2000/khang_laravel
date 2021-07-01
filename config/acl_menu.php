@@ -80,6 +80,14 @@ return [
                 "link"        => '/admin/contexts/list',
                 "permissions" => [$admin]
             ],
+            //posts
+            [
+
+                'name'        => 'post-admin.menus.top-menu',
+                "route"       => "post",
+                "link"        => '/admin/posts',
+                "permissions" => [$admin]
+            ],
 
             //Categories
             [
